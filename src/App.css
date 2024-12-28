@@ -1,0 +1,921 @@
+/* App.css*/
+body{
+  overflow-x: hidden;
+}
+/*Theme Style*/
+/* Light mode*/
+.light-theme {
+  background-color: white;
+  color: black;
+}
+/* Dark mode*/
+.dark-theme {
+  background-color: #101010;
+  color: white;
+  }
+
+  /*Toggle Style*/
+  /* Toggle.css*/
+  .container {
+    text-align: center;
+  }
+  .Toggle-button{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0px;
+    background:none;
+    font-size: 25px;
+    border: none;
+    outline: black;
+    cursor: pointer;
+  }
+  .light-icon,.dark-icon{
+  color: yellow;
+  }
+
+  /*Sidepage Style*/
+  /* Sidepage.css*/
+  .SidePage {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Initially hidden */
+  width: 250px;
+  height: 100%;
+  z-index: 1000;
+  background-color: white;
+  transition: left 0.3s ease; background-color: 0.3s ease;/* Smooth transition */
+}
+ /* Slide in when open */
+ .SidePage.open {
+  right: 0; 
+  }
+ /*Sidepage button in front of Navbar*/
+.sidepagebutton {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0px;
+  background:none;
+  margin-right: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+/*sidepage button in front of sidepage*/
+.sidepagebutton-inner{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 0px;
+  background:none;
+  margin-left: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+.light-theme .SidePage{
+  background-color: rgb(242, 236, 236);
+}
+.dark-theme .SidePage{
+  background-color: #1b1b1b;
+}
+.dark-theme .sidepagebutton{
+  color: white;
+}
+/* Ensure that <Link> behaves as a block element and removes underline */
+/* Style for the Home button */
+/* Ensure <Link> element (rendered as <a>) has no underline */
+nav a {
+  text-decoration: none; /* Removes underline from the <Link> element */
+}
+/* Style for the Homepage,popular,about,contact,privacy,terms and switch in sidepage button */
+.HomeSidepage,.PopularSidepage,.about-side-page,
+.contact-side-page,.privacy-side-page,.terms-side-page,
+.switch{
+  margin-left: 30px;
+  font-family: Arial, sans-serif;
+  color: black;
+}
+.dark-theme .HomeSidepage,.dark-theme .PopularSidepage,.dark-theme .about-side-page,
+.dark-theme .contact-side-page,.dark-theme .privacy-side-page,.dark-theme .terms-side-page,
+.switch{
+  margin-left: 30px;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+.PopularSidepage,.about-side-page,
+.contact-side-page,.privacy-side-page,
+.switch,.terms-side-page{
+  margin-top: 30px;
+}
+.HomeSidepage:hover,
+.PopularSidepage:hover,
+.about-side-page:hover,
+.contact-side-page:hover,
+.privacy-side-page:hover,
+.terms-side-page:hover {
+  color: rgb(63, 63, 255); /* Hover effect color */
+  cursor: pointer; /* Optional: Adds a pointer cursor for better UX */
+}
+
+/*Sermob Style*/
+/*Responsive css of sermob for mobile screen*/
+@media  only screen and (max-width: 600px) {
+  .Sermob {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(242, 236, 236);  /* Solid white background (no transparency) */
+  transition: opacity 0.3s ease, visibility 0s 0.3s;  /* Fade effect */
+  visibility: hidden;  /* Hidden by default */
+  opacity: 0;  /* Initially transparent */
+  z-index: 9999;  /* Ensure it stays above other content */
+}
+.dark-theme .Sermob{
+  background-color: #1b1b1b;
+}
+.Sermob.open {
+  visibility: visible;  /* Show when open */
+  opacity: 1;  /* Make it fully opaque */
+  transition: opacity 0.3s ease, visibility 0s 0s;  /* Fade in effect */
+}
+.sermobpagebutton {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 0px;
+  background:none;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  color: black;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.dark-theme .sermobpagebutton,
+.dark-theme .sermobpagebutton-inner{
+  color: white;
+}
+.sermobpagebutton:hover,
+.sermobpagebutton-inner:hover {
+  color: rgb(63, 63, 255);
+}
+.dark-theme .sermobpagebutton-inner{
+  background-color: #1b1b1b;
+}
+.sermobpage-header {
+  padding: 20px;
+}
+.sermobpagebutton-inner {
+  display: inline-block;  /* Moves the element to a new line */
+  margin-left: 0;
+  margin-right: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: black;
+  font-size: 18px;
+  background-color: rgb(242, 236, 236);
+  border: none
+}
+}
+
+/*Navbar Style*/
+/* Navbar.css*/
+.navbar-header {
+  display: flex; /* This will align the child elements in a row */
+  align-items: center; /* Aligns items vertically in the center */
+  background-color: rgb(242, 236, 236);
+  
+}
+/* Adds space between SidePage and the h6 tag */
+.navbar-header h3 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.light-theme .navbar-header {
+  background-color: rgb(242, 236, 236);
+  border-bottom: 2px rgb(242, 236, 236);
+}
+.dark-theme .navbar-header {
+  background-color: #1b1b1b;
+  border-bottom: 2px solid #333;
+}
+
+/*Home Style*/
+/* Home.css*/
+.image-container{
+  position: relative;
+  display: block;
+  align-items: center;
+  width: 1500px;/* Adjust as needed */
+  margin: 0 auto;
+}
+.box{
+  width: 280px;
+  height: 280px;
+  display: inline-block; /* Allows multiple boxes to sit next to each other */
+  margin: 10px; /* Space between images */
+  border-radius: none; /* Rounded corners */
+  overflow: hidden; /* Ensures no overflow from rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+.box img{
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+}
+/* Home page button*/
+.Home{
+  margin-top: 15px;
+  margin-bottom: 15px; 
+  padding: 0px;
+  background:none;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.dark-theme .Home{
+  color: white;
+}
+.Description{
+  position: relative;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Three boxes per line */
+  gap: 20px; /* Spacing between boxes */
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+}
+.descrip{
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.heading{
+  text-align: center;
+  margin-top: 60px;
+  font-size: 60px;
+}
+#H-P{
+  margin-bottom: 100px;
+  margin-top: 40px;
+}
+.dark-theme .descrip{
+  background-color: black;
+  border: 2px solid #333;
+}
+.dark-theme .heading{
+  color: rgb(63, 63, 255);
+}
+.heading2{
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.SearchTerm{
+  font-size:50px;
+  margin-left:20px;
+  font-family: Arial,  sans-serif;
+}
+/* Responsive css of home page for mobile screen */
+@media (max-width: 600px) {
+  .Description {
+    grid-template-columns: 1fr; /* One box per line */
+    
+  }
+  .heading{
+    margin-top: 30px;
+    font-size: 30px;
+  }
+  .heading2{
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .SearchTerm{
+    font-size: 30px;
+  }
+  .image-container {
+    display: grid; /* Use grid for centering */
+    grid-template-columns: 1fr 1fr; /* Responsive layout */
+    gap: 10px; /* Space between boxes */
+    justify-content: center; /* Horizontally center the grid */
+    align-items: center; /* Vertically center the grid */
+    margin: 0 auto; /* Center the container */
+    width: 100%; /* Adjust the width for smaller screens */
+  }
+  .box {
+    width: 135px;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .box img {
+    width: 100%; /* Image fits the width of the box */
+    height: 100%; /* Image fits the height of the box */
+    object-fit: cover; /* Prevents distortion while filling the box */
+  }
+}
+/*Responsive css of home page for tablet screen*/
+@media (min-width: 601px) and (max-width: 1024px) {
+  .Description {
+    grid-template-columns: 1fr; /* One box per line */
+    
+  }
+  .heading{
+    margin-top: 30px;
+    font-size: 40px;
+  }
+  .heading2{
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .SearchTerm{
+    font-size: 35px;
+  }
+  .image-container {
+    display: grid; /* Use grid for centering */
+    grid-template-columns: 1fr 1fr 1fr; /* Responsive layout */
+    gap: 10px; /* Space between boxes */
+    justify-content: center; /* Horizontally center the grid */
+    align-items: center; /* Vertically center the grid */
+    margin: 0 auto; /* Center the container */
+    width: 100%; /* Adjust the width for smaller screens */
+  }
+  .box {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .box img {
+    width: 100%; /* Image fits the width of the box */
+    height: 100%; /* Image fits the height of the box */
+    object-fit: cover; /* Prevents distortion while filling the box */
+  }
+}
+
+/*Popular Style*/
+/* Popular.css*/
+/* Popular button style*/
+.Popular{
+  display: inline-block;
+  margin: 20px auto; /* Center the button horizontally */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(63, 63, 255);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease; 
+}
+.dark-theme .Popular{
+  color: white;
+}
+/* Add transitions for smooth theme change */
+/* Trending image styling*/
+.image-card{
+  width: 280px;
+  height: 280px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  display: inline-block; /* Allows multiple boxes to sit next to each other */
+  margin: 10px; /* Space between images */
+  border-radius: none; /* Rounded corners */
+  overflow: hidden; /* Ensures no overflow from rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+.image-card img{
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+}
+.image-grid{
+  position: relative;
+  display: block;
+  align-items: center;
+   width: 1500px;/* Adjust as needed */
+  margin: 0 auto;
+}
+#ht1{
+  margin-left: 16px;
+  font-family: Arial, sans-serif;
+}
+#ht2{
+  margin-left: 18px;
+  font-family: Arial, sans-serif;
+}
+/*Responsive css of popular sidepage for mobile screen*/
+@media (max-width:600px) {
+  .image-grid{
+    display: grid; /* Use grid for centering */
+    grid-template-columns: 1fr 1fr; /* Responsive layout */
+    gap: 10px; /* Space between boxes */
+    justify-content: center; /* Horizontally center the grid */
+    align-items: center; /* Vertically center the grid */
+    margin: 0 auto; /* Center the container */
+    width: 100%; /* Adjust the width for smaller screens */
+     }
+  .image-card{
+    width: 135px;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    }
+    .image-card img{
+      width: 100%; /* Image fits the width of the box */
+      height: 100%; /* Image fits the height of the box */
+      object-fit: cover; /* Prevents distortion while filling the box */
+    }
+}
+/*Responsive css of popular page for tablet screen*/
+@media (min-width:601px) and (max-width:1024px) {
+  .image-grid{
+    display: grid; /* Use grid for centering */
+    grid-template-columns: 1fr 1fr 1fr; /* Responsive layout */
+    gap: 10px; /* Space between boxes */
+    justify-content: center; /* Horizontally center the grid */
+    align-items: center; /* Vertically center the grid */
+    margin: 0 auto; /* Center the container */
+    width: 100%; /* Adjust the width for smaller screens */
+  }
+  .image-card{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .image-card img{
+    width: 100%; /* Image fits the width of the box */
+    height: 100%; /* Image fits the height of the box */
+    object-fit: cover; /* Prevents distortion while filling the box */
+  }
+}
+
+/*Loading Style*/
+/* loading button */
+.load-more-btn{
+  display: inline-block;
+  margin: 20px auto; /* Center the button horizontally */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(63, 63, 255);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+/* Hover effect for loading button */
+.load-more-btn:hover {
+  background-color:rgb(63, 63, 255);
+}
+
+/*Scroll Style*/
+/*Scrollbar css*/
+/* Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar */
+  
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track); /* Track background color */
+  border:1px solid  #888;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb); /* Thumb (handle) color */
+}
+/*Scrollbar for light theme */
+.light-theme {
+  --scrollbar-track: lightgray; /* Light background for the track */
+  --scrollbar-thumb: #888; /* Darker color for the thumb */
+}
+/*Scrollbar dark theme */
+.dark-theme {
+  --scrollbar-track: #2c2c2c; /* Dark background for the track */
+  --scrollbar-thumb: #444; /* Lighter color for the thumb */
+}
+
+/*Search Style*/
+/* Search bar*/
+/* Wrapper container for input and icon */
+.search-bar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 300px; /* Adjust as needed */
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+/* Input field styling */
+.inputSearch {
+  flex: 1;
+  padding: 10px 15px; /* Padding for comfortable text entry */
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-top-right-radius:0;
+  border-bottom-right-radius:0;
+  background-color: #f9f9f9; /* Default background color */
+  border-top-left-radius: 5px; /* Rounded left side */
+  border-bottom-left-radius: 5px;
+}
+.dark-theme .inputSearch{
+  background-color: #333;
+  color: white;
+}
+.clear-button {
+  position: absolute;
+  right: 45px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.dark-theme .clear-button{
+  color: white;
+}
+/* Search button styling */
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  background-color: #f9f9f9; /* Same background color as input */
+  color: #333; /* Text/icon color */
+  border: none;
+  border-top-right-radius: 5px; /* Rounded right side */
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+  outline: 1px solid black; /* Black outline */
+  height: 38.5px; /* Match height to input field */
+  
+}
+.dark-theme .search-button{
+  background-color: #333;
+  color: white;
+}
+/* Icon styling within the button */
+.search-icon {
+  font-size: 18px;
+}
+/* Optional: Change button color on hover */
+.light-theme .search-button:hover {
+  background-color: #ccc;
+  color: rgb(0, 128, 109); /* Hover effect color */
+}
+.dark-theme .search-button:hover{
+  color:  rgb(0, 148, 207);
+}
+/*Responsive css of search bar for mobile screen*/
+@media only screen and (max-width: 600px) {
+  .search-bar-container
+   { display: inline-flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    align-items: flex-start; /* Align items to the left */
+    justify-content: flex-start; /* Align content to the left */
+    margin-left: 15px; /* Add left margin (adjust the pixel value as needed) */
+    margin-right: 0;
+  }
+  .clear-button{
+    margin-top: 10px;
+  }
+  .search-option-heading h3{
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    margin-left: 25px;
+  }
+  .search-option button{
+    display: block;
+    background-color: rgb(242, 236, 236);
+    border: none;
+    color: black;
+    font-family: Arial,  sans-serif;
+    font-size: 16px;
+    margin: 20px;
+  }
+  .dark-theme .search-option button{
+    background-color: #1b1b1b;
+    color: white;
+  }
+  .search-option button:hover{
+    color: rgb(63, 63, 255);
+  }
+}
+
+
+
+/*Bottom Style */
+/*About,privacy and terms css*/
+/*About,privacy and terms heading and paragraph Styling */
+#Ah1,
+#Ah2,#Ph,
+#Php,#Th,
+#Thp {
+  margin-bottom: 20px;
+}
+/*About, privacy, terms and Contact*/
+.footer,.content-box,
+.privacy-all,.All-Terms{
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+/* About,privacy and terms Boxes Container */
+.about-boxes,.privacy-contents,.Terms-boxes{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three boxes per line */
+  gap: 20px; /* Spacing between boxes */
+  margin-top: 20px;
+}/* Individual Box Styling for privacy,about and terms */
+.about-box,.privacy-content,
+.Terms-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+/*Dark mode for about, privacy and terms box*/
+.dark-theme .about-box,
+.dark-theme .privacy-content,
+.dark-theme .Terms-box{
+  background-color:#1b1b1b ;
+  border: none;
+}
+/* About,privacy and terms Titles */
+.about-box h3,.privacy-content h3,
+.Terms-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+/* About,privacy,information update and terms Descriptions */
+.about-box p,.privacy-content p,
+.Terms-box p ,#update{
+  font-size: 14px;
+  line-height: 1.5;
+}
+#update{
+  text-align: left;
+}
+/* Responsive css of about,privacy and terms page for mobile screen */
+@media (max-width: 600px) {
+  .about-boxes,
+  .privacy-contents,
+  .Terms-boxes {
+    grid-template-columns: 1fr; /* One box per line */
+  }
+}
+
+/*Contact css*/
+/*Contact heading and Contact heading paragraph */
+#Ch, #Chp {
+  text-align: center;
+ font-family: Arial, sans-serif;
+}
+#Chp{
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.All-content{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Three boxes per line */
+  gap: 30px; /* Spacing between boxes */
+  margin-top: 30px;
+  justify-content: center;
+  justify-items: center;
+  margin-bottom: 40px;
+}
+.content{
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 300px;
+}
+.dark-theme .content{
+  border: none;
+  background-color: #1b1b1b;
+}
+/* Responsive css of contact page for mobile screen */
+@media (max-width: 600px) {
+  .All-content {
+    grid-template-columns: 1fr; /* One box per line */
+  }
+  #Chp{
+    margin: 15px;
+  }
+}
+.Email-btn ,.Location-btn,.fb,.insta{
+background-color: white;
+border: none;
+}
+.Email-btn,.Location-btn,.email-link{
+  margin-top: 20px;
+}
+.Email-heading {
+  display: inline;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+.Email-heading1{
+  font-family:  Arial, sans-serif;
+  margin-left: 85px;
+  margin-top: 5px;
+}
+.Location-btn{
+  color: rgb(63, 63, 255);
+}
+.Location-heading {
+  margin-top: 15px;
+  display: inline-block;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+.Location-description{
+  margin-top: 5px;
+  margin-left: 25px;
+}
+.Follow {
+  margin-left: 25px;
+  margin-bottom: 0;
+  font-family: Arial, sans-serif;
+}
+.fb,.insta{
+  margin-left: 25px;
+  margin-top: 5px;
+  font-size: 2rem;
+}
+.fb{
+  margin-left: 0;
+}
+#insta1{
+  color: #d62976;
+}
+#fb1{
+  color: #3b5998;
+}
+.dark-theme .Email-btn,
+.dark-theme .Location-btn,
+.dark-theme .insta,
+.dark-theme .fb {
+  background-color: #1b1b1b;
+  font-family: Arial, sans-serif;
+}
+
+/* Bottom css*/
+.bottom-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: left;
+  justify-content: center;
+  justify-items: center;
+  font-family: Arial, sans-serif;
+}
+.bottom-contents {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 80px; /* Space between items */
+  font-family:Arial, sans-serif; 
+  border-bottom: 1px solid #333;
+}
+#e,#gram,#book{
+  display: inline;
+}
+.e-link,#insta-link,#fb-link{
+  text-decoration: none;
+  color: black;
+}
+.dark-theme .e-link,.dark-theme #insta-link,
+.dark-theme #fb-link{
+  color:white;
+}
+.e-link:hover,
+#insta-link:hover,
+#fb-link:hover{
+  color: rgb(63, 63, 255);
+}
+#gram,.Bottom-btn-insta,#fb,.Bottom-btn-fb{
+  margin-top: 5px;
+}
+#Bhp,.Bottom-btn-link1,.Bottom-btn-fb,
+.bottom-btn-terms{
+  margin-bottom: 30px;
+}
+#Bh{
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+#Bhp,.Bottom-btn-link,.Bottom-btn-e,.bottom-btn-privacy{
+  margin-top: 15px;
+}
+.Bottom-btn-e,.Bottom-btn-insta,.Bottom-btn-fb{
+  background-color: rgb(242, 236, 236);
+  border: none;
+}
+.dark-theme .Bottom-btn-e,.dark-theme .Bottom-btn-insta,.dark-theme .Bottom-btn-fb{
+  background-color: #1b1b1b;
+  border: none;
+}
+.Bottom-btn-link{
+  border: none;
+  background-color: rgb(242, 236, 236);
+  font-weight:Arial, sans-serif; 
+  font-size: 14px;
+  cursor: pointer;
+}
+.Bottom-btn-link1{
+  margin-top: 5px;
+  border: none;
+  background-color: rgb(242, 236, 236);
+  font-weight:Arial, sans-serif; 
+  font-size: 14px;
+  cursor: pointer;
+}
+.dark-theme .Bottom-btn-link,.dark-theme .Bottom-btn-link1{
+  color: white;
+  background-color: #1b1b1b;
+}
+.Bottom-btn-link1,.Bottom-btn-insta,.Bottom-btn-fb,.bottom-btn-terms{
+  margin-top: 10px;
+}
+.bottom-btn-privacy,.bottom-btn-terms{
+  border: none;
+  background-color: rgb(242, 236, 236);
+  font-weight:Arial, sans-serif; 
+  font-size: 14px;
+  cursor: pointer;
+}
+.dark-theme .bottom-btn-privacy,.dark-theme .bottom-btn-terms{
+  background-color:#1b1b1b;
+  border: none;
+  color: white;
+}
+#foot{
+  text-align: center;
+  font-family:Arial, sans-serif;
+  margin-top: 25px;
+}
+.bottom-btn-privacy:hover,
+.bottom-btn-terms:hover,
+.Bottom-btn-link:hover,
+.Bottom-btn-link1:hover{
+  color: rgb(63, 63, 255);
+}
+/* Footbot css*/
+.light-theme .Footer-header{
+  background-color: rgb(242, 236, 236);
+  border-top: 1px solid #333;
+}
+.dark-theme .Footer-header{
+  background-color: #1b1b1b;
+  border-top: 2px solid #333;
+}
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
