@@ -20,10 +20,6 @@ body{
     text-align: center;
   }
   .Toggle-button{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 20px;
-    margin-right: 20px;
     padding: 0px;
     background:none;
     font-size: 25px;
@@ -53,10 +49,6 @@ body{
   }
  /*Sidepage button in front of Navbar*/
 .sidepagebutton {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
   padding: 0px;
   background:none;
   margin-right: 20px;
@@ -83,7 +75,8 @@ body{
 .dark-theme .SidePage{
   background-color: #1b1b1b;
 }
-.dark-theme .sidepagebutton{
+.dark-theme .sidepagebutton,
+.dark-theme .sidepagebutton-inner{
   color: white;
 }
 /* Ensure that <Link> behaves as a block element and removes underline */
@@ -101,8 +94,7 @@ nav a {
   color: black;
 }
 .dark-theme .HomeSidepage,.dark-theme .PopularSidepage,.dark-theme .about-side-page,
-.dark-theme .contact-side-page,.dark-theme .privacy-side-page,.dark-theme .terms-side-page,
-.switch{
+.dark-theme .contact-side-page,.dark-theme .privacy-side-page,.dark-theme .terms-side-page{
   margin-left: 30px;
   font-family: Arial, sans-serif;
   color: white;
@@ -122,84 +114,155 @@ nav a {
   cursor: pointer; /* Optional: Adds a pointer cursor for better UX */
 }
 
-/*Sermob Style*/
-/*Responsive css of sermob for mobile screen*/
-@media  only screen and (max-width: 600px) {
-  .Sermob {
+
+/*Searchicon Style*/
+/*Responsive css of searchicon for mobile screen*/
+@media only screen and (max-width: 600px) {
+  /* General styles for the SearchPage container */
+/* Styles for the SearchPage */
+.SearchPage {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(242, 236, 236);  /* Solid white background (no transparency) */
-  transition: opacity 0.3s ease, visibility 0s 0.3s;  /* Fade effect */
-  visibility: hidden;  /* Hidden by default */
-  opacity: 0;  /* Initially transparent */
-  z-index: 9999;  /* Ensure it stays above other content */
+  background-color: rgb(242, 236, 236); /* Adjust background as needed */
+  display: none;
+  z-index: 1000;
 }
-.dark-theme .Sermob{
+.SearchPage.open {
+  display: block;
+  padding: 20px;
+  box-sizing: border-box;
+}
+/* Close button container */
+.search-close-header {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.close-btn {
+  background: rgb(242, 236, 236);
+  border: none;
+  font-size: 25px; /* Adjust icon size */
+  cursor: pointer;
+  color: black; /* Adjust color */
+}
+.search-btn-outer{
+  font-size: 25px;
+  background-color: rgb(242, 236, 236);
+  border: none;
+}
+/* Search bar container styles */
+.search-bar-header {
+  width: 100%; /* Take full width of the parent container */
+  max-width: 300px; /* Limit the maximum width for smaller screens */
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+/* Style for the SearchBar input */
+.search-bar-header input {
+  width: 100%; /* Adjust input width to fit the container */
+  max-width: 300px; /* Ensure input doesn't exceed max width */
+  padding: 10px;
+  margin-right: 0;
+  box-sizing: border-box;
+  font-size: 16px; /* Adjust font size for better usability */
+}
+.search-bar-header button {
+  margin-left: 0; /* Space between the input and the button */
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.popular-search{
+  width: 100%; /* Take full width of the parent container */
+  max-width: 300px; /* Limit the maximum width for smaller screens */
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.popular-search h3{
+  font-family: Arial,  sans-serif;
+  font-size: 20px;
+  
+}
+.popular-search button{
+  padding: 5px 5px;
+  font-family: Arial,  sans-serif;
+  font-size: 12px;
+  color: white;
+  width: 30%;
+  height: 25%;
+  margin:5px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(63, 63, 255);
+}
+.dark-theme .SearchPage,
+.dark-theme .close-btn,
+.dark-theme .search-btn-outer{
   background-color: #1b1b1b;
 }
-.Sermob.open {
-  visibility: visible;  /* Show when open */
-  opacity: 1;  /* Make it fully opaque */
-  transition: opacity 0.3s ease, visibility 0s 0s;  /* Fade in effect */
-}
-.sermobpagebutton {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding: 0px;
-  background:none;
-  border: none;
-  outline: none;
-  font-size: 25px;
-  color: black;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-.dark-theme .sermobpagebutton,
-.dark-theme .sermobpagebutton-inner{
+.dark-theme .close-btn,
+.dark-theme .popular-search button,
+.dark-theme .search-btn-outer{
   color: white;
 }
-.sermobpagebutton:hover,
-.sermobpagebutton-inner:hover {
-  color: rgb(63, 63, 255);
+
+  
+
+
+
+
+
 }
-.dark-theme .sermobpagebutton-inner{
-  background-color: #1b1b1b;
-}
-.sermobpage-header {
-  padding: 20px;
-}
-.sermobpagebutton-inner {
-  display: inline-block;  /* Moves the element to a new line */
-  margin-left: 0;
-  margin-right: 5px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  color: black;
-  font-size: 18px;
-  background-color: rgb(242, 236, 236);
-  border: none
-}
-}
+
 
 /*Navbar Style*/
 /* Navbar.css*/
+/* General Navbar Styling */
 .navbar-header {
-  display: flex; /* This will align the child elements in a row */
-  align-items: center; /* Aligns items vertically in the center */
-  background-color: rgb(242, 236, 236);
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 20px;
 }
-/* Adds space between SidePage and the h6 tag */
-.navbar-header h3 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
+.headerlinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.header-link {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+.project-name {
+  font-size: 24px;
+  font-style: italic;
+  margin: 0;
+}
+/* Home button styling */
+.Home {
+  border: none;
+  padding: 0px;
+  background:none;
+  outline: none;
+  font-size: 25px;
+  cursor: pointer;
+  color: black;
 }
 .light-theme .navbar-header {
   background-color: rgb(242, 236, 236);
@@ -210,41 +273,57 @@ nav a {
   border-bottom: 2px solid #333;
 }
 
-/*Home Style*/
-/* Home.css*/
-.image-container{
-  position: relative;
-  display: block;
-  align-items: center;
-  width: 1500px;/* Adjust as needed */
-  margin: 0 auto;
+
+
+
+
+
+
+
+/*Home page style*/
+/*Home css*/
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ensures responsive layout */
+  gap: 15px;
+  margin: 20px;
 }
-.box{
-  width: 280px;
-  height: 280px;
-  display: inline-block; /* Allows multiple boxes to sit next to each other */
-  margin: 10px; /* Space between images */
-  border-radius: none; /* Rounded corners */
-  overflow: hidden; /* Ensures no overflow from rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-.box img{
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
-}
-/* Home page button*/
-.Home{
-  margin-top: 15px;
-  margin-bottom: 15px; 
-  padding: 0px;
-  background:none;
-  border: none;
-  outline: none;
-  font-size: 25px;
+.box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
   cursor: pointer;
-  margin-left: 20px;
-  margin-right: 20px;
+  transition: transform 0.3s;
+}
+.box img:hover {
+  transform: scale(1.05);
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 .dark-theme .Home{
   color: white;
@@ -305,37 +384,59 @@ nav a {
   }
   .heading{
     margin-top: 30px;
-    font-size: 30px;
+    font-size: 24px;
   }
   .heading2{
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 10px;
     margin-right: 10px;
   }
   .SearchTerm{
-    font-size: 30px;
+    font-size: 24px;
   }
   .image-container {
-    display: grid; /* Use grid for centering */
-    grid-template-columns: 1fr 1fr; /* Responsive layout */
-    gap: 10px; /* Space between boxes */
-    justify-content: center; /* Horizontally center the grid */
-    align-items: center; /* Vertically center the grid */
-    margin: 0 auto; /* Center the container */
-    width: 100%; /* Adjust the width for smaller screens */
-  }
-  .box {
-    width: 135px;
-    height: 200px;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .box img {
-    width: 100%; /* Image fits the width of the box */
-    height: 100%; /* Image fits the height of the box */
-    object-fit: cover; /* Prevents distortion while filling the box */
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ensures responsive layout */
+  gap: 15px;
+  margin: 10;
+}
+.box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.box img:hover {
+  transform: scale(1.05);
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
 }
 /*Responsive css of home page for tablet screen*/
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -356,24 +457,18 @@ nav a {
     font-size: 35px;
   }
   .image-container {
-    display: grid; /* Use grid for centering */
-    grid-template-columns: 1fr 1fr 1fr; /* Responsive layout */
-    gap: 10px; /* Space between boxes */
-    justify-content: center; /* Horizontally center the grid */
-    align-items: center; /* Vertically center the grid */
-    margin: 0 auto; /* Center the container */
-    width: 100%; /* Adjust the width for smaller screens */
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ensures responsive layout */
+  gap: 15px;
+  margin: 10;
   }
-  .box {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+  
   .box img {
-    width: 100%; /* Image fits the width of the box */
-    height: 100%; /* Image fits the height of the box */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
     object-fit: cover; /* Prevents distortion while filling the box */
   }
 }
@@ -399,30 +494,50 @@ nav a {
 .dark-theme .Popular{
   color: white;
 }
-/* Add transitions for smooth theme change */
 /* Trending image styling*/
-.image-card{
-  width: 280px;
-  height: 280px;
-  margin-left: 10px;
-  margin-bottom: 20px;
-  display: inline-block; /* Allows multiple boxes to sit next to each other */
-  margin: 10px; /* Space between images */
-  border-radius: none; /* Rounded corners */
-  overflow: hidden; /* Ensures no overflow from rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px;
 }
-.image-card img{
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
+.image-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
-.image-grid{
-  position: relative;
-  display: block;
+.image-card img:hover {
+  transform: scale(1.05);
+}
+/*Display image view after click*/
+.modal1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
   align-items: center;
-   width: 1500px;/* Adjust as needed */
-  margin: 0 auto;
+  z-index: 1000;
+}
+.modal1 img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+.modal-close1 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 #ht1{
   margin-left: 16px;
@@ -435,48 +550,67 @@ nav a {
 /*Responsive css of popular sidepage for mobile screen*/
 @media (max-width:600px) {
   .image-grid{
-    display: grid; /* Use grid for centering */
-    grid-template-columns: 1fr 1fr; /* Responsive layout */
-    gap: 10px; /* Space between boxes */
-    justify-content: center; /* Horizontally center the grid */
-    align-items: center; /* Vertically center the grid */
-    margin: 0 auto; /* Center the container */
-    width: 100%; /* Adjust the width for smaller screens */
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ensures responsive layout */
+   gap: 15px;
+   margin: 10;
      }
-  .image-card{
-    width: 135px;
-    height: 200px;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    }
     .image-card img{
-      width: 100%; /* Image fits the width of the box */
-      height: 100%; /* Image fits the height of the box */
-      object-fit: cover; /* Prevents distortion while filling the box */
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .image-card img:hover {
+      transform: scale(1.05);
+    }
+    .modal1 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal1 img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10px;
+    }
+    .modal1-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .Popular{
+      font-size: 14px;
     }
 }
 /*Responsive css of popular page for tablet screen*/
 @media (min-width:601px) and (max-width:1024px) {
-  .image-grid{
-    display: grid; /* Use grid for centering */
-    grid-template-columns: 1fr 1fr 1fr; /* Responsive layout */
-    gap: 10px; /* Space between boxes */
-    justify-content: center; /* Horizontally center the grid */
-    align-items: center; /* Vertically center the grid */
-    margin: 0 auto; /* Center the container */
-    width: 100%; /* Adjust the width for smaller screens */
+  .image-grid {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ensures responsive layout */
+  gap: 15px;
+  margin: 10;
   }
-  .image-card{
-    width: 200px;
-    height: 200px;
+  
+  .image-card img {
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .image-card img{
-    width: 100%; /* Image fits the width of the box */
-    height: 100%; /* Image fits the height of the box */
+    cursor: pointer;
+    transition: transform 0.3s;
     object-fit: cover; /* Prevents distortion while filling the box */
   }
 }
@@ -600,42 +734,7 @@ nav a {
   color:  rgb(0, 148, 207);
 }
 /*Responsive css of search bar for mobile screen*/
-@media only screen and (max-width: 600px) {
-  .search-bar-container
-   { display: inline-flex;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    align-items: flex-start; /* Align items to the left */
-    justify-content: flex-start; /* Align content to the left */
-    margin-left: 15px; /* Add left margin (adjust the pixel value as needed) */
-    margin-right: 0;
-  }
-  .clear-button{
-    margin-top: 10px;
-  }
-  .search-option-heading h3{
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    margin-left: 25px;
-  }
-  .search-option button{
-    display: block;
-    background-color: rgb(242, 236, 236);
-    border: none;
-    color: black;
-    font-family: Arial,  sans-serif;
-    font-size: 16px;
-    margin: 20px;
-  }
-  .dark-theme .search-option button{
-    background-color: #1b1b1b;
-    color: white;
-  }
-  .search-option button:hover{
-    color: rgb(63, 63, 255);
-  }
-}
+
 
 
 
@@ -803,119 +902,104 @@ border: none;
   font-family: Arial, sans-serif;
 }
 
+
+/*Bottom Style*/
 /* Bottom css*/
-.bottom-footer {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.bottom-footer{
   max-width: 1200px;
   margin: auto;
   padding: 20px;
-  text-align: left;
   justify-content: center;
   justify-items: center;
+  text-align: center;
   font-family: Arial, sans-serif;
 }
-.bottom-contents {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 80px; /* Space between items */
-  font-family:Arial, sans-serif; 
-  border-bottom: 1px solid #333;
+/*Bottom box*/
+.bottom-contents{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Three boxes per line */
+  gap: 20px; /* Spacing between boxes */
+  margin-top: 20px;
+}/* Individual Box Styling for bottom-contents */
+.bottom-item {
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
 }
-#e,#gram,#book{
-  display: inline;
+.bottom-item p{
+   font-size: 14px;
 }
-.e-link,#insta-link,#fb-link{
+.bottom-item button{
+  background-color:rgb(242, 236, 236);
+  border: none;
+  margin-bottom: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.bottom-item button:hover{
+  color: rgb(63, 63, 255);
+}
+.e-link,.insta-link,.fb-link{
   text-decoration: none;
   color: black;
 }
-.dark-theme .e-link,.dark-theme #insta-link,
-.dark-theme #fb-link{
-  color:white;
-}
-.e-link:hover,
-#insta-link:hover,
-#fb-link:hover{
+.e-link:hover,.insta-link:hover,.fb-link:hover{
   color: rgb(63, 63, 255);
 }
-#gram,.Bottom-btn-insta,#fb,.Bottom-btn-fb{
-  margin-top: 5px;
+.instagram-link{
+  color: #d62976;
 }
-#Bhp,.Bottom-btn-link1,.Bottom-btn-fb,
-.bottom-btn-terms{
-  margin-bottom: 30px;
+.facebook-link{
+  color: #3b5998;
 }
-#Bh{
-  margin-top: 30px;
-  margin-bottom: 0;
-}
-#Bhp,.Bottom-btn-link,.Bottom-btn-e,.bottom-btn-privacy{
-  margin-top: 15px;
-}
-.Bottom-btn-e,.Bottom-btn-insta,.Bottom-btn-fb{
-  background-color: rgb(242, 236, 236);
-  border: none;
-}
-.dark-theme .Bottom-btn-e,.dark-theme .Bottom-btn-insta,.dark-theme .Bottom-btn-fb{
+.dark-theme .bottom-item button,
+.dark-theme .e-link,
+.dark-theme .fb-link,
+.dark-theme .insta-link{
   background-color: #1b1b1b;
-  border: none;
-}
-.Bottom-btn-link{
-  border: none;
-  background-color: rgb(242, 236, 236);
-  font-weight:Arial, sans-serif; 
-  font-size: 14px;
-  cursor: pointer;
-}
-.Bottom-btn-link1{
-  margin-top: 5px;
-  border: none;
-  background-color: rgb(242, 236, 236);
-  font-weight:Arial, sans-serif; 
-  font-size: 14px;
-  cursor: pointer;
-}
-.dark-theme .Bottom-btn-link,.dark-theme .Bottom-btn-link1{
-  color: white;
-  background-color: #1b1b1b;
-}
-.Bottom-btn-link1,.Bottom-btn-insta,.Bottom-btn-fb,.bottom-btn-terms{
-  margin-top: 10px;
-}
-.bottom-btn-privacy,.bottom-btn-terms{
-  border: none;
-  background-color: rgb(242, 236, 236);
-  font-weight:Arial, sans-serif; 
-  font-size: 14px;
-  cursor: pointer;
-}
-.dark-theme .bottom-btn-privacy,.dark-theme .bottom-btn-terms{
-  background-color:#1b1b1b;
-  border: none;
   color: white;
 }
-#foot{
-  text-align: center;
-  font-family:Arial, sans-serif;
-  margin-top: 25px;
-}
-.bottom-btn-privacy:hover,
-.bottom-btn-terms:hover,
-.Bottom-btn-link:hover,
-.Bottom-btn-link1:hover{
+.dark-theme .bottom-item button:hover,
+.dark-theme .e-link:hover,
+.dark-theme .fb-link:hover,
+.dark-theme .insta-link:hover{
   color: rgb(63, 63, 255);
 }
-/* Footbot css*/
-.light-theme .Footer-header{
+.bottom-contents{
+  border-bottom:1px solid #333;
+}
+.dark-theme .bottom-contents{
+  border-bottom:2px solid #333 ;
+}
+/*Responsive css of bottom page for mobile screen*/
+@media  (max-width: 600px) {
+  .bottom-footer {
+    display: flex;
+    flex-direction: column;  /* Align items in a column */
+    align-items: flex-start; /* Align children to the left */
+    text-align: left; /* Set text alignment to left */
+    font-family: Arial, sans-serif;
+  }
+  
+   .bottom-contents{
+    grid-template-columns: repeat(1,1fr);
+    gap: 10px;
+   }
+}
+
+
+
+
+.Footer-header{
   background-color: rgb(242, 236, 236);
-  border-top: 1px solid #333;
+  border-top:1px solid #333 ;
 }
 .dark-theme .Footer-header{
   background-color: #1b1b1b;
-  border-top: 2px solid #333;
+  border-top:2px solid #333 ;
 }
+
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }

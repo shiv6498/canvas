@@ -23,6 +23,7 @@ function App() {
   const location = useLocation(); // Hook to get the current location (URL)
   const navigate = useNavigate(); // Hook for navigating programmatically
 
+
   // Fetch photos using the Pexels API
   const getPhotos = useCallback(async () => {
     if (!hasMore) return; // Prevent fetching if no more photos
@@ -108,8 +109,16 @@ const handleLink =(path) => {
 }
 // Automatically update the active link based on the current URL
 useEffect(() => {
-  setActiveLink(location.pathname); // Update active link on path change
-}, [location.pathname]); // Dependency on pathname ensures it updates when navigating back/forward
+  // Update active link on path change
+  setActiveLink(location.pathname);
+    
+  // Navigate with query if query is not empty
+  /*if (query !== '') {
+    // Properly concatenate pathname and query string
+    navigate(`${location.pathname}?query=${query}`);
+  }*/
+}, [location.pathname]);
+
 
   // Handle loading more photos
   const loadMorePhotos = () => {
@@ -133,6 +142,10 @@ useEffect(() => {
     };
   }, []); // Empty dependency array ensures effect runs only on mount
 
+  
+ 
+  
+
   return (
     <div className="App">
       <Navbar
@@ -140,7 +153,7 @@ useEffect(() => {
         toggleDarkMode={toggleDarkMode}
         query={query}
         setQuery={setQuery}
-        onSearchClick={handleSearch} // Pass onSearchClick here
+        handleSearch={handleSearch} // Pass onSearchClick here
         activeLink={activeLink} // Derived from location.
         setActiveLink={setActiveLink}
         handleLink={handleLink}
@@ -162,6 +175,8 @@ useEffect(() => {
             />
           }
         />
+        
+
         <Route path="/Terms" element={<Terms/>}/>
         <Route path="/Privacy" element={<Privacy/>}/>
         <Route path="/Contact" element={<Contact/>}/>

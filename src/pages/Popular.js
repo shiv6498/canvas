@@ -3,14 +3,15 @@ import '../App.css';
 
 function TrendingImages() {
   const [trendingImages, setTrendingImages] = useState([]);
-  const [loading, setLoading] = useState(true); // Initially loading
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
+  const [modalImage1, setModalImage1] = useState(null);
 
   useEffect(() => {
     const fetchTrendingImages = async () => {
       setLoading(true);
-      setError(null); // Reset error state before fetching
+      setError(null);
 
       try {
         const response = await fetch(
@@ -28,14 +29,13 @@ function TrendingImages() {
 
         const data = await response.json();
 
-        // Avoid duplicate images
         setTrendingImages((prevImages) => {
           const ids = new Set(prevImages.map((image) => image.id));
           const uniqueImages = data.photos.filter((image) => !ids.has(image.id));
           return [...prevImages, ...uniqueImages];
         });
       } catch (err) {
-        setError(err.message); // Set error message
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -45,7 +45,15 @@ function TrendingImages() {
   }, [page]);
 
   const loadMore = () => {
-    setPage((prevPage) => prevPage + 1); // Increment page to load more
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  const openModal1 = (imageSrc) => {
+    setModalImage1(imageSrc);
+  };
+
+  const closeModal1 = () => {
+    setModalImage1(null);
   };
 
   return (
@@ -56,22 +64,25 @@ function TrendingImages() {
       {/* Display error message if there is one */}
       {error && <p className="error-message">Error: {error}</p>}
 
+      {/* Display loading message */}
+      {loading && <p>Loading images...</p>}
+
       {/* Display images */}
       <div className="image-grid">
-        {trendingImages.map((image, index) => (
-          <div key={`${image.id}-${index}`} className="image-card">
-            <img src={image.src.medium} alt={image.photographer} />
+        {trendingImages.map((image) => (
+          <div key={image.id} className="image-card">
+            <img
+              src={image.src.medium}
+              alt={image.photographer}
+              onClick={() => openModal1(image.src.large)}
+            />
           </div>
         ))}
       </div>
 
       {/* Display load more button */}
       {!loading && !error && trendingImages.length > 0 && (
-        <button
-          onClick={loadMore}
-          disabled={loading}
-          className="load-more-btn"
-        >
+        <button onClick={loadMore} disabled={loading} className="load-more-btn">
           Load More
         </button>
       )}
@@ -79,6 +90,16 @@ function TrendingImages() {
       {/* Fallback for no data */}
       {!loading && !error && trendingImages.length === 0 && (
         <p>No trending images found.</p>
+      )}
+
+      {/* Modal for Enlarged Image */}
+      {modalImage1 && (
+        <div className="modal1" onClick={closeModal1}>
+          <button className="modal-close1" onClick={closeModal1}>
+            &times;
+          </button>
+          <img src={modalImage1} alt="Enlarged view" />
+        </div>
       )}
     </div>
   );

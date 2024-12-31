@@ -39,9 +39,9 @@ const SidePage = ({ theme, toggleDarkMode, activeLink,handleLink}) => {
       <div ref={sidePageRef} className={isOpen ? 'SidePage open' : 'SidePage'}>
         {/* SidePage content */}
         <div className="sidepage-header">
-          <div onClick={SidePagetoggle} className="sidepagebutton-inner">
+          <button onClick={SidePagetoggle} className="sidepagebutton-inner">
             <VscChromeClose />
-          </div>
+          </button>
         </div>
 
         <nav>

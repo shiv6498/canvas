@@ -3,7 +3,7 @@ import { CiSearch } from "react-icons/ci";
 import { useNavigate } from 'react-router-dom';
 import { VscChromeClose } from "react-icons/vsc";
 
-const SearchBar = ({ query, setQuery, onSearchClick, setIsserMobOpen,isserMobOpen}) => {
+const SearchBar = ({ query, setQuery, handleSearch, setSearchpage, searchpage}) => {
   const navigate = useNavigate();
 
   // Function to capitalize the first letter of each word
@@ -14,27 +14,32 @@ const SearchBar = ({ query, setQuery, onSearchClick, setIsserMobOpen,isserMobOpe
   // This function will handle the search button click
   const handleSearchClick = () => {
     if (query.trim() !== '') {
-      navigate(`/?query=${query}`); // Navigate to home with queryz
-      onSearchClick(); // Trigger the search functionality
-      if(isserMobOpen===true){
-      setIsserMobOpen(false); // Close the search bar
-      }
+      navigate(`/?query=${query}`); // Navigate to home with query
+      handleSearch(); // Trigger the search functionality
+      if(searchpage===true)
+        {
+          setSearchpage(false);
+        }
     }
+    
   };
-
   // This function will handle key down (Enter key)
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault(); // Prevent Enter key from causing unwanted behavior
       if (query.trim() !== '') {
         navigate(`/?query=${query}`); // Navigate to home with query
-        onSearchClick(); // Trigger the search functionality
-        if(isserMobOpen===true){
-          setIsserMobOpen(false); // Close the search bar
+        handleSearch(); // Trigger the search functionality
+        if(searchpage===true)
+          {
+            setSearchpage(false);
           }
       }
     }
   };
+  
+
+  
 
   // Function to clear the query
   const handleClearQuery = () => {

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import SidePage from "../pages/Sidepage";
 import Toggle from "../pages/Toggle";
 import SearchBar from "../pages/SearchBar";
-import Sermob from "../pages/Sermob";
+import Searchicon from "../pages/Searchicon";
 import { HomeOutlined } from "@ant-design/icons";
 
 const Navbar = ({
@@ -10,7 +10,7 @@ const Navbar = ({
   toggleDarkMode,
   query,
   setQuery,
-  onSearchClick,
+  handleSearch,
   activeLink,
   handleLink,
   windowWidth,
@@ -20,7 +20,8 @@ const Navbar = ({
   
   return (
     <div className="navbar-header">
-      <header className="headerlink">
+      <div className="headerlinks">
+        <div className="header-link">
         <nav>
           {/* Home Button */}
           <Link to="/" onClick={() => handleLink("/")}>
@@ -29,33 +30,35 @@ const Navbar = ({
             </button>
           </Link>
         </nav>
-      </header>
-
+        </div>
+        <div className="header-link">
       {/* Canvas Project Name */}
       <h3 className="project-name">
         <i>Canvas</i>
       </h3>
-
+      </div>
+      <div className="header-link">
       {/* Conditionally render content based on window width */}
       {windowWidth < 600 ?
-       (<Sermob 
-       query={query}
-       setQuery={setQuery}
-       onSearchClick={onSearchClick}
-       setSearchTerm={setSearchTerm}/>)
+       (<Searchicon
+        query={query}
+        setQuery={setQuery}
+        handleSearch={handleSearch} 
+        setSearchTerm={setSearchTerm} />)
            :
            (<SearchBar
             query={query}
             setQuery={setQuery}
-            onSearchClick={onSearchClick} // The search button click handler
+            handleSearch={handleSearch} // The search button click handler
             />)}
 
       {/* Search Bar Component */}
-      
-
+      </div>
+       <div className="header-link">
       {/* Dark Mode Toggle */}
       <Toggle theme={theme} toggleDarkMode={toggleDarkMode} />
-
+      </div>
+      <div className="header-link">
       {/* SidePage Component */}
       <SidePage
         theme={theme}
@@ -63,6 +66,8 @@ const Navbar = ({
         activeLink={activeLink}
         handleLink={handleLink}
       />
+      </div>
+      </div>
     </div>
   );
 };
