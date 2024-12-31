@@ -31,6 +31,7 @@ body{
   color: yellow;
   }
 
+
   /*Sidepage Style*/
   /* Sidepage.css*/
   .SidePage {
@@ -216,13 +217,6 @@ nav a {
 .dark-theme .search-btn-outer{
   color: white;
 }
-
-  
-
-
-
-
-
 }
 
 
@@ -274,12 +268,6 @@ nav a {
 }
 
 
-
-
-
-
-
-
 /*Home page style*/
 /*Home css*/
 .image-container {
@@ -293,11 +281,13 @@ nav a {
   height: 100%;
   border-radius: 10px;
   cursor: pointer;
+  object-fit: cover;
   transition: transform 0.3s;
 }
 .box img:hover {
   transform: scale(1.05);
 }
+/*Display the image after click*/
 .modal {
   position: fixed;
   top: 0;
@@ -314,6 +304,7 @@ nav a {
   max-width: 100%;
   max-height: 100%;
   border-radius: 10px;
+  object-fit: cover;
 }
 .modal-close {
   position: absolute;
@@ -387,7 +378,7 @@ nav a {
     font-size: 24px;
   }
   .heading2{
-    font-size: 14px;
+    font-size: 16px;
     margin-left: 10px;
     margin-right: 10px;
   }
@@ -395,48 +386,11 @@ nav a {
     font-size: 24px;
   }
   .image-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ensures responsive layout */
-  gap: 15px;
-  margin: 10;
-}
-.box img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-.box img:hover {
-  transform: scale(1.05);
-}
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-.modal img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 10px;
-}
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ensures responsive layout */
+   gap: 15px;
+   margin: 10;
+  }
 }
 /*Responsive css of home page for tablet screen*/
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -458,20 +412,12 @@ nav a {
   }
   .image-container {
     display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ensures responsive layout */
-  gap: 15px;
-  margin: 10;
-  }
-  
-  .box img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s;
-    object-fit: cover; /* Prevents distortion while filling the box */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ensures responsive layout */
+    gap: 15px;
+    margin: 10;
   }
 }
+
 
 /*Popular Style*/
 /* Popular.css*/
@@ -506,6 +452,7 @@ nav a {
   height: 100%;
   border-radius: 10px;
   cursor: pointer;
+  object-fit: cover;
   transition: transform 0.3s;
 }
 .image-card img:hover {
@@ -527,6 +474,7 @@ nav a {
 .modal1 img {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover;
   border-radius: 10px;
 }
 .modal-close1 {
@@ -554,47 +502,7 @@ nav a {
    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ensures responsive layout */
    gap: 15px;
    margin: 10;
-     }
-    .image-card img{
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .image-card img:hover {
-      transform: scale(1.05);
-    }
-    .modal1 {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal1 img {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 10px;
-    }
-    .modal1-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-    }
-    .Popular{
-      font-size: 14px;
-    }
+  } 
 }
 /*Responsive css of popular page for tablet screen*/
 @media (min-width:601px) and (max-width:1024px) {
@@ -604,16 +512,8 @@ nav a {
   gap: 15px;
   margin: 10;
   }
-  
-  .image-card img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s;
-    object-fit: cover; /* Prevents distortion while filling the box */
-  }
 }
+
 
 /*Loading Style*/
 /* loading button */
@@ -663,7 +563,7 @@ nav a {
 }
 
 /*Search Style*/
-/* Search bar*/
+/* Search bar css*/
 /* Wrapper container for input and icon */
 .search-bar-container {
   position: relative;
@@ -733,9 +633,6 @@ nav a {
 .dark-theme .search-button:hover{
   color:  rgb(0, 148, 207);
 }
-/*Responsive css of search bar for mobile screen*/
-
-
 
 
 /*Bottom Style */
@@ -801,6 +698,7 @@ nav a {
     grid-template-columns: 1fr; /* One box per line */
   }
 }
+
 
 /*Contact css*/
 /*Contact heading and Contact heading paragraph */
@@ -989,8 +887,8 @@ border: none;
 }
 
 
-
-
+/*Footer Style*/
+/*Footer css*/
 .Footer-header{
   background-color: rgb(242, 236, 236);
   border-top:1px solid #333 ;
